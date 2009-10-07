@@ -1,0 +1,28 @@
+<p>
+  <b>タイトル:</b>
+  <%=h @todo.title %>
+</p>
+
+<p>
+  <b>内容:</b>
+  <%=h @todo.content %>
+</p>
+
+<p>
+  <b>起票日:</b>
+  <%=h @todo.d_entry.strftime("%Y-%m-%d(%a) %H:%M:%S") %>
+</p>
+
+<p>
+  <b>更新日:</b>
+  <%=h @todo.d_update.strftime("%Y-%m-%d(%a) %H:%M:%S") if @todo.d_update %>
+</p>
+
+<p>
+  <b>完了日:</b>
+  <%=h @todo.d_close.strftime("%Y-%m-%d(%a) %H:%M:%S") if @todo.d_close %>
+</p>
+
+
+<%= link_to 'Edit', edit_todo_path(@todo) %> |
+<%= link_to 'Back', todos_path %>

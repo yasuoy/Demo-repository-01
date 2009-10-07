@@ -1,0 +1,3546 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (19.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTodos (20090904024352)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "content" text, "d_entry" time, "d_update" time, "d_close" time, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090904024352')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("todos")[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-04 11:52:50) [GET]
+
+ActionController::RoutingError (No route matches "/todo" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-04 11:53:28) [GET]
+
+ActionController::RoutingError (No route matches "/todo/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-04 11:53:32) [GET]
+
+ActionController::RoutingError (No route matches "/todo/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2009-09-04 12:12:55) [GET]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 100ms (View: 17, DB: 1) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-04 12:14:00) [GET]
+  [4;36;1mTodo Load (2.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 53ms (View: 38, DB: 3) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-09-04 12:18:11) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 229ms (View: 224, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-09-04 12:19:09) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "todo"=>{"title"=>"ToDoアプリケーションの作成", "d_entry(1i)"=>"2009", "d_entry(2i)"=>"9", "d_close(1i)"=>"2009", "d_update(1i)"=>"2009", "d_entry(3i)"=>"4", "d_close(2i)"=>"9", "d_update(2i)"=>"9", "d_entry(4i)"=>"03", "content"=>"Ruby on Railsを活用してToDoアプリケーションを作成する", "d_close(3i)"=>"4", "d_update(3i)"=>"4", "d_entry(5i)"=>"18", "d_close(4i)"=>"03", "d_update(4i)"=>"03", "d_close(5i)"=>"18", "d_update(5i)"=>"18"}}
+  [4;35;1mTodo Create (0.5ms)[0m   [0mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES('2009-09-04 03:18:00', '2009-09-04 03:19:09', 'ToDoアプリケーションの作成', '2009-09-04 03:18:00', '2009-09-04 03:18:00', 'Ruby on Railsを活用してToDoアプリケーションを作成する', '2009-09-04 03:19:09')[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 41ms (DB: 1) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-04 12:19:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-04 12:19:14) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-09-04 12:19:24) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 21ms (View: 16, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-09-04 12:19:59) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "todo"=>{"title"=>"カテゴリモデルの作成", "d_entry(1i)"=>"2009", "d_entry(2i)"=>"9", "d_close(1i)"=>"2009", "d_update(1i)"=>"2009", "d_entry(3i)"=>"4", "d_close(2i)"=>"9", "d_update(2i)"=>"9", "d_entry(4i)"=>"03", "content"=>"ToDoモデルの親としてカテゴリモデルを作成する", "d_close(3i)"=>"4", "d_update(3i)"=>"4", "d_entry(5i)"=>"19", "d_close(4i)"=>"03", "d_update(4i)"=>"03", "d_close(5i)"=>"19", "d_update(5i)"=>"19"}}
+  [4;36;1mTodo Create (0.4ms)[0m   [0;1mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES('2009-09-04 03:19:00', '2009-09-04 03:19:59', 'カテゴリモデルの作成', '2009-09-04 03:19:00', '2009-09-04 03:19:00', 'ToDoモデルの親としてカテゴリモデルを作成する', '2009-09-04 03:19:59')[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-04 12:19:59) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-04 12:20:05) [GET]
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 12:17:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 12:19:49) [GET]
+  [4;36;1mTodo Load (0.8ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 16ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 12:20:30) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 16ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 12:21:35) [GET]
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 62ms (View: 57, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 12:22:22) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 16ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 13:35:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-09-05 13:39:23) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 73ms (View: 67, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-09-05 13:40:25) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "todo"=>{"title"=>"日付の登録", "d_entry(1i)"=>"2009", "d_entry(2i)"=>"9", "d_close(1i)"=>"2009", "d_update(1i)"=>"2009", "d_entry(3i)"=>"5", "d_close(2i)"=>"9", "d_update(2i)"=>"9", "d_entry(4i)"=>"04", "content"=>"entry : 現在日時\r\nupdate : 現在日時\r\nclose : クローズチェックされた場合に現在日時", "d_close(3i)"=>"5", "d_update(3i)"=>"5", "d_entry(5i)"=>"39", "d_close(4i)"=>"04", "d_update(4i)"=>"04", "d_close(5i)"=>"39", "d_update(5i)"=>"39"}}
+  [4;35;1mTodo Create (25.3ms)[0m   [0mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES('2009-09-05 04:39:00', '2009-09-05 04:40:25', '日付の登録', '2009-09-05 04:39:00', '2009-09-05 13:40:25', 'entry : 現在日時
+update : 現在日時
+close : クローズチェックされた場合に現在日時', '2009-09-05 04:40:25')[0m
+Redirected to http://localhost:3000/todos/3
+Completed in 59ms (DB: 25) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 13:40:25) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 3) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/3]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 13:40:31) [GET]
+  [4;35;1mTodo Load (0.9ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 60ms (View: 9, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 13:40:43) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 3) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/3]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-09-05 13:42:03) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 24ms (View: 17, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-09-05 13:42:22) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "todo"=>{"title"=>"日付の登録", "d_entry(1i)"=>"2009", "d_entry(2i)"=>"9", "d_close(1i)"=>"2009", "d_update(1i)"=>"2009", "d_entry(3i)"=>"5", "d_close(2i)"=>"9", "d_update(2i)"=>"9", "d_entry(4i)"=>"04", "content"=>"Timeではなく、DateTime", "d_close(3i)"=>"5", "d_update(3i)"=>"5", "d_entry(5i)"=>"42", "d_close(4i)"=>"04", "d_update(4i)"=>"04", "d_close(5i)"=>"42", "d_update(5i)"=>"42"}}
+  [4;35;1mTodo Create (0.9ms)[0m   [0mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES('2009-09-05 04:42:00', '2009-09-05 04:42:22', '日付の登録', '2009-09-05 04:42:00', '2009-09-05 13:42:22', 'Timeではなく、DateTime', '2009-09-05 04:42:22')[0m
+Redirected to http://localhost:3000/todos/4
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 13:42:22) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/4]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 13:42:48) [GET]
+  [4;35;1mTodo Load (1.0ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 18ms (View: 10, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 14:42:16) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 40ms (View: 34, DB: 0) | 200 OK [http://localhost/todos/4/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-05 14:42:21) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"4", "todo"=>{"title"=>"日付の登録", "d_entry(1i)"=>"2000", "d_entry(2i)"=>"1", "d_close(1i)"=>"2000", "d_update(1i)"=>"2000", "d_entry(3i)"=>"1", "d_close(2i)"=>"1", "d_update(2i)"=>"1", "d_entry(4i)"=>"13", "content"=>"Timeではなく、DateTime", "d_close(3i)"=>"1", "d_update(3i)"=>"1", "d_entry(5i)"=>"42", "d_close(4i)"=>"04", "d_update(4i)"=>"04", "d_close(5i)"=>"42", "d_update(5i)"=>"42"}}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+  [4;36;1mTodo Update (0.6ms)[0m   [0;1mUPDATE "todos" SET "d_entry" = '2000-01-01 13:42:00', "updated_at" = '2009-09-05 05:42:21' WHERE "id" = 4[0m
+Redirected to http://localhost:3000/todos/4
+Completed in 18ms (DB: 1) | 302 Found [http://localhost/todos/4]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 14:42:21) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/4]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 14:42:35) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 23ms (View: 17, DB: 0) | 200 OK [http://localhost/todos/4/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-05 14:45:35) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"4", "todo"=>{"title"=>"日付の登録", "d_entry(1i)"=>"2000", "d_entry(2i)"=>"1", "d_close(1i)"=>"2000", "d_update(1i)"=>"2000", "d_entry(3i)"=>"1", "d_close(2i)"=>"1", "d_update(2i)"=>"1", "d_entry(4i)"=>"13", "content"=>"Timeではなく、DateTime", "d_close(3i)"=>"1", "d_update(3i)"=>"1", "d_entry(5i)"=>"42", "d_close(4i)"=>"04", "d_update(4i)"=>"04", "d_close(5i)"=>"42", "d_update(5i)"=>"42"}}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+  [4;36;1mTodo Update (0.6ms)[0m   [0;1mUPDATE "todos" SET "d_update" = '2009-09-05 14:45:35', "updated_at" = '2009-09-05 05:45:35' WHERE "id" = 4[0m
+Redirected to http://localhost:3000/todos/4
+Completed in 18ms (DB: 1) | 302 Found [http://localhost/todos/4]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 14:45:35) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 56ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/4]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 14:47:49) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 25ms (View: 18, DB: 0) | 200 OK [http://localhost/todos/4/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-05 14:47:54) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"4", "todo"=>{"title"=>"日付の登録", "d_entry(1i)"=>"2000", "d_entry(2i)"=>"1", "d_close(1i)"=>"2000", "d_update(1i)"=>"2000", "d_entry(3i)"=>"1", "d_close(2i)"=>"1", "d_update(2i)"=>"1", "d_entry(4i)"=>"13", "content"=>"Timeではなく、DateTime", "d_close(3i)"=>"1", "d_update(3i)"=>"1", "d_entry(5i)"=>"42", "d_close(4i)"=>"04", "d_update(4i)"=>"14", "d_close(5i)"=>"42", "d_update(5i)"=>"45"}}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_update" = '2000-01-01 14:45:00', "updated_at" = '2009-09-05 05:47:54' WHERE "id" = 4[0m
+  [4;35;1mTodo Update (0.4ms)[0m   [0mUPDATE "todos" SET "d_update" = '2009-09-05 14:47:54', "updated_at" = '2009-09-05 05:47:54' WHERE "id" = 4[0m
+Redirected to http://localhost:3000/todos/4
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/todos/4]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 14:47:54) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/4]
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTodos (20090904024352)
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "content" text, "d_entry" time, "d_update" time, "d_close" time, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090904024352')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("todos")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTodos (20090904024352)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "content" text, "d_entry" datetime, "d_update" datetime, "d_close" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090904024352')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("todos")[0m
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 15:37:09) [GET]
+  [4;36;1mTodo Load (0.5ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 28ms (View: 23, DB: 0) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-09-05 15:37:12) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 165ms (View: 159, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-09-05 15:37:41) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "todo"=>{"title"=>"ToDoアプリケーションの作成", "d_entry(1i)"=>"2009", "d_entry(2i)"=>"9", "d_close(1i)"=>"2009", "d_update(1i)"=>"2009", "d_entry(3i)"=>"5", "d_close(2i)"=>"9", "d_update(2i)"=>"9", "d_entry(4i)"=>"06", "content"=>"railsを活用してToDo管理のアプリケーションを作成する", "d_close(3i)"=>"5", "d_update(3i)"=>"5", "d_entry(5i)"=>"37", "d_close(4i)"=>"06", "d_update(4i)"=>"06", "d_close(5i)"=>"37", "d_update(5i)"=>"37"}}
+  [4;35;1mTodo Create (0.6ms)[0m   [0mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES('2009-09-05 06:37:00', '2009-09-05 06:37:41', 'ToDoアプリケーションの作成', '2009-09-05 06:37:00', '2009-09-05 06:37:41', 'railsを活用してToDo管理のアプリケーションを作成する', '2009-09-05 06:37:41')[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 38ms (DB: 1) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 15:37:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 25ms (View: 18, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 15:37:48) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 13ms (View: 6, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 22:03:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 22:03:38) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 23:14:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 48ms (View: 42, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 23:22:53) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 23:22:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+ERROR: compiling _run_erb_app47views47todos47edit46html46erb RAISED compile error
+/Users/yasuoy/RoR/todo/app/views/todos/edit.html.erb:19: syntax error, unexpected '<'
+  <p>
+   ^
+/Users/yasuoy/RoR/todo/app/views/todos/edit.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting ')'
+Function body:           def _run_erb_app47views47todos47edit46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Editing todo</h1>\n"
+@output_buffer.concat "\n"
+ form_for(@todo) do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :title ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :title ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :content ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_area :content ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    <b>D entry:</b>\n"
+@output_buffer.concat "    "; @output_buffer.concat((h @todo.d_entry ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.
+  </p>
+  <p>
+    <%= f.label :d_entry ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.datetime_select :d_entry ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :d_update ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.datetime_select :d_update ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.check_box("close", "close", "open") ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :d_close ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.datetime_select :d_close ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.submit 'Update' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Show', @todo ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Back', todos_path ).to_s); @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/yasuoy/RoR/todo/app/views/todos/edit.html.erb:42:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/yasuoy/RoR/todo/app/views/todos/edit.html.erb:19: syntax error, unexpected '<'
+  <p>
+   ^
+/Users/yasuoy/RoR/todo/app/views/todos/edit.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting ')') on line #19 of app/views/todos/edit.html.erb:
+16:     <%=h @todo.d_entry %>
+17:     <%= f.
+18:   </p>
+19:   <p>
+20:     <%= f.label :d_entry %><br />
+21:     <%= f.datetime_select :d_entry %>
+22:   </p>
+
+    app/views/todos/edit.html.erb:42:in `compile!'
+
+Rendered rescues/_trace (47.5ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 23:23:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+
+ActionView::TemplateError (undefined method `merge' for "close":String) on line #28 of app/views/todos/edit.html.erb:
+25:     <%= f.datetime_select :d_update %>
+26:   </p>
+27:   <p>
+28:     <%= f.check_box("close", "close", "open") %>
+29:     <%= f.label :d_close %><br />
+30:     <%= f.datetime_select :d_close %>
+31:   </p>
+
+    app/views/todos/edit.html.erb:28
+    app/views/todos/edit.html.erb:3
+
+Rendered rescues/_trace (62.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 23:27:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+
+ActionView::TemplateError (undefined method `merge' for "close":String) on line #28 of app/views/todos/edit.html.erb:
+25:     <%= f.datetime_select :d_update %>
+26:   </p>
+27:   <p>
+28:     <%= f.check_box("close", "close") %>
+29:     <%= f.label :d_close %><br />
+30:     <%= f.datetime_select :d_close %>
+31:   </p>
+
+    app/views/todos/edit.html.erb:28
+    app/views/todos/edit.html.erb:3
+
+Rendered rescues/_trace (72.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 23:27:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 27ms (View: 21, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 23:31:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+
+ActionView::TemplateError (undefined method `merge' for "close":String) on line #28 of app/views/todos/edit.html.erb:
+25:     <%= f.datetime_select :d_update %>
+26:   </p>
+27:   <p>
+28:     <%= f.check_box(:d_close, "close", "open") %>
+29:     <%= f.label :d_close %><br />
+30:     <%= f.datetime_select :d_close %>
+31:   </p>
+
+    app/views/todos/edit.html.erb:28
+    app/views/todos/edit.html.erb:3
+
+Rendered rescues/_trace (50.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 23:32:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 82ms (View: 76, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 23:38:00) [GET]
+  [4;36;1mTodo Load (0.6ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 11ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-05 23:38:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 25ms (View: 19, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-05 23:38:08) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"0", "title"=>"ToDoアプリケーションの作成", "d_entry(1i)"=>"2009", "d_entry(2i)"=>"9", "d_update(1i)"=>"2009", "d_entry(3i)"=>"5", "d_update(2i)"=>"9", "d_entry(4i)"=>"06", "content"=>"railsを活用してToDo管理のアプリケーションを作成する", "d_update(3i)"=>"5", "d_entry(5i)"=>"37", "d_update(4i)"=>"06", "d_update(5i)"=>"37"}}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;35;1mTodo Update (0.4ms)[0m   [0mUPDATE "todos" SET "d_close" = NULL, "d_entry" = '2009-09-05 06:37:00', "updated_at" = '2009-09-05 14:38:08' WHERE "id" = 1[0m
+  [4;36;1mTodo Update (0.4ms)[0m   [0;1mUPDATE "todos" SET "d_update" = '2009-09-05 14:38:08', "updated_at" = '2009-09-05 14:38:08' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 25ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-05 23:38:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 23:38:15) [GET]
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.strftime) on line #18 of app/views/todos/index.html.erb:
+15:     <td><%=h todo.content %></td>
+16:     <td><%=h todo.d_entry.strftime("%Y-%m-%d") %></td>
+17:     <td><%=h todo.d_update.strftime("%Y-%m-%d") %></td>
+18:     <td><%=h todo.d_close.strftime("%Y-%m-%d") %></td>
+19:     <td><%= link_to 'Show', todo %></td>
+20:     <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+21:     <td><%= link_to 'Destroy', todo, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    app/views/todos/index.html.erb:18
+    app/views/todos/index.html.erb:12:in `each'
+    app/views/todos/index.html.erb:12
+    app/controllers/todos_controller.rb:7:in `index'
+
+Rendered rescues/_trace (52.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 23:39:16) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+ERROR: compiling _run_erb_app47views47todos47index46html46erb RAISED compile error
+/Users/yasuoy/RoR/todo/app/views/todos/index.html.erb:18: syntax error, unexpected kIF_MOD, expecting ')'
+...d_close.strftime("%Y-%m-%d" if todo.d_close) ).to_s); @outpu...
+                              ^
+/Users/yasuoy/RoR/todo/app/views/todos/index.html.erb:18: syntax error, unexpected ')', expecting kEND
+...m-%d" if todo.d_close) ).to_s); @output_buffer.concat "</td>...
+                              ^
+Function body:           def _run_erb_app47views47todos47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing todos</h1>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<table border=\"1\">\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "    <th>\343\202\277\343\202\244\343\203\210\343\203\253</th>\n"
+@output_buffer.concat "    <th>\345\206\205\345\256\271</th>\n"
+@output_buffer.concat "    <th>\350\265\267\347\245\250\346\227\245</th>\n"
+@output_buffer.concat "    <th>\346\233\264\346\226\260\346\227\245</th>\n"
+@output_buffer.concat "    <th>\345\256\214\344\272\206\346\227\245</th>\n"
+@output_buffer.concat "  </tr>\n"
+@output_buffer.concat "\n"
+ @todos.each do |todo| ; @output_buffer.concat "\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h todo.title ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h todo.content ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h todo.d_entry.strftime("%Y-%m-%d") ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h todo.d_update.strftime("%Y-%m-%d") ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h todo.d_close.strftime("%Y-%m-%d" if todo.d_close) ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Show', todo ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Edit', edit_todo_path(todo) ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Destroy', todo, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "  </tr>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "</table>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<br />\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'New todo', new_todo_path ).to_s); @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/yasuoy/RoR/todo/app/views/todos/index.html.erb:32:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/yasuoy/RoR/todo/app/controllers/todos_controller.rb:7:in `index'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/yasuoy/RoR/todo/app/views/todos/index.html.erb:18: syntax error, unexpected kIF_MOD, expecting ')'
+...d_close.strftime("%Y-%m-%d" if todo.d_close) ).to_s); @outpu...
+                              ^
+/Users/yasuoy/RoR/todo/app/views/todos/index.html.erb:18: syntax error, unexpected ')', expecting kEND
+...m-%d" if todo.d_close) ).to_s); @output_buffer.concat "</td>...
+                              ^) on line #18 of app/views/todos/index.html.erb:
+15:     <td><%=h todo.content %></td>
+16:     <td><%=h todo.d_entry.strftime("%Y-%m-%d") %></td>
+17:     <td><%=h todo.d_update.strftime("%Y-%m-%d") %></td>
+18:     <td><%=h todo.d_close.strftime("%Y-%m-%d" if todo.d_close) %></td>
+19:     <td><%= link_to 'Show', todo %></td>
+20:     <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+21:     <td><%= link_to 'Destroy', todo, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    app/views/todos/index.html.erb:32:in `compile!'
+    app/controllers/todos_controller.rb:7:in `index'
+
+Rendered rescues/_trace (109.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 23:40:04) [GET]
+  [4;36;1mTodo Load (0.6ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+ERROR: compiling _run_erb_app47views47todos47index46html46erb RAISED compile error
+/Users/yasuoy/RoR/todo/app/views/todos/index.html.erb:18: syntax error, unexpected ')', expecting kTHEN or ':' or '\n' or ';'
+...d_close.strftime("%Y-%m-%d") ).to_s); @output_buffer.concat ...
+                              ^
+Function body:           def _run_erb_app47views47todos47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing todos</h1>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<table border=\"1\">\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "    <th>\343\202\277\343\202\244\343\203\210\343\203\253</th>\n"
+@output_buffer.concat "    <th>\345\206\205\345\256\271</th>\n"
+@output_buffer.concat "    <th>\350\265\267\347\245\250\346\227\245</th>\n"
+@output_buffer.concat "    <th>\346\233\264\346\226\260\346\227\245</th>\n"
+@output_buffer.concat "    <th>\345\256\214\344\272\206\346\227\245</th>\n"
+@output_buffer.concat "  </tr>\n"
+@output_buffer.concat "\n"
+ @todos.each do |todo| ; @output_buffer.concat "\n"
+@output_buffer.concat "  <tr>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h todo.title ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h todo.content ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h todo.d_entry.strftime("%Y-%m-%d") ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((h todo.d_update.strftime("%Y-%m-%d") ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat((if todo.d_close h todo.d_close.strftime("%Y-%m-%d") ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Show', todo ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Edit', edit_todo_path(todo) ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "    <td>"; @output_buffer.concat(( link_to 'Destroy', todo, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n"
+@output_buffer.concat "  </tr>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "</table>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<br />\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'New todo', new_todo_path ).to_s); @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/yasuoy/RoR/todo/app/views/todos/index.html.erb:32:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/yasuoy/RoR/todo/app/controllers/todos_controller.rb:7:in `index'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/yasuoy/RoR/todo/app/views/todos/index.html.erb:18: syntax error, unexpected ')', expecting kTHEN or ':' or '\n' or ';'
+...d_close.strftime("%Y-%m-%d") ).to_s); @output_buffer.concat ...
+                              ^) on line #18 of app/views/todos/index.html.erb:
+15:     <td><%=h todo.content %></td>
+16:     <td><%=h todo.d_entry.strftime("%Y-%m-%d") %></td>
+17:     <td><%=h todo.d_update.strftime("%Y-%m-%d") %></td>
+18:     <td><%=if todo.d_close h todo.d_close.strftime("%Y-%m-%d") %></td>
+19:     <td><%= link_to 'Show', todo %></td>
+20:     <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+21:     <td><%= link_to 'Destroy', todo, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    app/views/todos/index.html.erb:32:in `compile!'
+    app/controllers/todos_controller.rb:7:in `index'
+
+Rendered rescues/_trace (51.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 23:42:54) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-05 23:43:31) [GET]
+  [4;36;1mTodo Load (1.4ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 00:20:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 22ms (View: 16, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:35:42) [GET]
+  [4;36;1mTodo Load (0.6ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:35:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 23ms (View: 17, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:36:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+
+ActionView::TemplateError (undefined method `text_hidden' for #<ActionView::Helpers::FormBuilder:0x1a36118>) on line #17 of app/views/todos/edit.html.erb:
+14:   <p>
+15:     <b>登録日時:</b>
+16:     <%=h @todo.d_entry %>
+17:     <%= f.text_hidden :d_entry %>
+18:   </p>
+19:   <p>
+20:     <%= f.label :d_update %><br />
+
+    app/views/todos/edit.html.erb:17
+    app/views/todos/edit.html.erb:3
+
+Rendered rescues/_trace (48.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:37:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 20ms (View: 14, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:38:12) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"0", "title"=>"ToDoアプリケーションの作成", "d_entry"=>"2009-09-05 06:37:00", "d_update(1i)"=>"2009", "d_update(2i)"=>"9", "content"=>"railsを活用してToDo管理のアプリケーションを作成する", "d_update(3i)"=>"5", "d_update(4i)"=>"14", "d_update(5i)"=>"38"}}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_update" = '2009-09-05 14:38:00', "updated_at" = '2009-09-06 06:38:12' WHERE "id" = 1[0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_update" = '2009-09-06 06:38:12', "updated_at" = '2009-09-06 06:38:12' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:38:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:38:20) [GET]
+  [4;36;1mTodo Load (0.8ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 13ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:38:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:41:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 18ms (View: 9, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:41:10) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"0", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:38:12", "d_entry"=>"2009-09-05 06:37:00", "content"=>"railsを活用してToDo管理のアプリケーションを作成する"}}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_update" = '2009-09-06 06:41:10', "updated_at" = '2009-09-06 06:41:10' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:41:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:41:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:41:23) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:41:10", "d_entry"=>"2009-09-05 06:37:00", "content"=>"railsを活用してToDo管理のアプリケーションを作成する"}}
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;36;1mTodo Update (0.8ms)[0m   [0;1mUPDATE "todos" SET "d_update" = '2009-09-06 06:41:23', "updated_at" = '2009-09-06 06:41:23' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 20ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:41:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:41:30) [GET]
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 11ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:42:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 13ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:42:38) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:41:23", "d_entry"=>"2009-09-05 06:37:00", "content"=>"railsを活用してToDo管理のアプリケーションを作成する"}}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_update" = '2009-09-06 06:42:38', "updated_at" = '2009-09-06 06:42:38' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 20ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:42:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:42:41) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 12ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:42:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 16ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:44:11) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:42:38", "d_entry"=>"2009-09-05 06:37:00", "content"=>"railsを活用してToDo管理のアプリケーションを作成する"}}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_update" = '2009-09-06 06:44:11', "updated_at" = '2009-09-06 06:44:11' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 18ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:44:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:44:18) [GET]
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 11ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:44:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 13ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:45:35) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:44:11", "d_entry"=>"2009-09-05 06:37:00", "content"=>"railsを活用してToDo管理のアプリケーションを作成する"}}
+  [4;36;1mTodo Load (0.5ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+
+NoMethodError (undefined method `close' for #<Todo:0x302d20>):
+  app/controllers/todos_controller.rb:74:in `update'
+  app/controllers/todos_controller.rb:65:in `update'
+
+Rendered rescues/_trace (40.2ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:45:49) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:44:11", "d_entry"=>"2009-09-05 06:37:00", "content"=>"railsを活用してToDo管理のアプリケーションを作成する"}}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;36;1mTodo Update (0.4ms)[0m   [0;1mUPDATE "todos" SET "content" = NULL, "d_update" = '2009-09-06 06:45:49', "updated_at" = '2009-09-06 06:45:49' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:45:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:46:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.5ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 15ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:46:25) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"0", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:45:49", "d_entry"=>"2009-09-05 06:37:00", "content"=>"aaaaaaa"}}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "content" = 'aaaaaaa', "updated_at" = '2009-09-06 06:46:25' WHERE "id" = 1[0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_update" = '2009-09-06 06:46:25', "updated_at" = '2009-09-06 06:46:25' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 72ms (DB: 2) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:46:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:47:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 13ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:47:16) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:46:25", "d_entry"=>"2009-09-05 06:37:00", "content"=>"aaaaaaa"}}
+  [4;36;1mTodo Load (0.5ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;35;1mTodo Update (0.6ms)[0m   [0mUPDATE "todos" SET "d_update" = '2009-09-06 06:47:16', "updated_at" = '2009-09-06 06:47:16' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:47:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:47:20) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 11ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:47:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:47:31) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 60ms (View: 53, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:47:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:47:38) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:47:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:48:04) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:48:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:48:25) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:48:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 60ms (View: 9, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:50:59) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"0", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:47:16", "d_entry"=>"2009-09-05 06:37:00", "content"=>"aaaaaaa"}}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Redirected to http://localhost:3000/todos/1
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:50:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:51:04) [GET]
+  [4;35;1mTodo Load (0.8ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 12ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:51:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 13ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:51:11) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:47:16", "d_entry"=>"2009-09-05 06:37:00", "content"=>"aaaaaaa"}}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Redirected to http://localhost:3000/todos/1
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:51:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:51:13) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:52:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 14ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:52:18) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:47:16", "d_entry"=>"2009-09-05 06:37:00", "content"=>"aaaaaaa"}}
+  [4;35;1mTodo Load (1.2ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Redirected to http://localhost:3000/todos/1
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:52:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:52:22) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 11ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:53:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 13ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:53:22) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:47:16", "d_entry"=>"2009-09-05 06:37:00", "content"=>"aaaaaaa"}}
+  [4;35;1mTodo Load (1.1ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Redirected to http://localhost:3000/todos/1
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:53:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:53:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 13ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:54:02) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:47:16", "d_entry"=>"2009-09-05 06:37:00", "content"=>"aaaaaaa"}}
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Redirected to http://localhost:3000/todos/1
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:54:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:54:06) [GET]
+  [4;36;1mTodo Load (0.6ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:54:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:54:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 13ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:55:56) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:47:16", "d_entry"=>"2009-09-05 06:37:00", "content"=>"aaaaaaa"}}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_update" = '2009-09-06 06:55:56', "updated_at" = '2009-09-06 06:55:56' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:55:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:56:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 12ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:56:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 12ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:56:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 12ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 15:56:14) [GET]
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 11ms (View: 5, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 15:56:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 13ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-06 15:56:22) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "id"=>"1", "todo"=>{"d_close"=>"0", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:55:56", "d_entry"=>"2009-09-05 06:37:00", "content"=>"aaaaaaa"}}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_update" = '2009-09-06 06:56:22', "updated_at" = '2009-09-06 06:56:22' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 15:56:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 16:13:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+
+ActionView::TemplateError (undefined method `local' for Sat Sep 05 06:37:00 UTC 2009:Time) on line #16 of app/views/todos/edit.html.erb:
+13:   </p>
+14:   <p>
+15:     <b>登録日時:</b>
+16:     <%=h @todo.d_entry.local %>
+17:     <%= f.hidden_field :d_entry %>
+18:   </p>
+19:   <p>
+
+    app/views/todos/edit.html.erb:16
+    app/views/todos/edit.html.erb:3
+
+Rendered rescues/_trace (101.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 16:17:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 18ms (View: 9, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 16:25:28) [GET]
+  [4;36;1mTodo Load (2.0ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 13ms (View: 6, DB: 2) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-06 16:25:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 16ms (View: 9, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-06 16:29:35) [GET]
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 194ms (View: 188, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-09-06 16:29:42) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 27ms (View: 21, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-09-06 16:29:58) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GJOZiYmODByxfLyYYUGkQyP3b2vISl0ptTDreTbxq8w=", "todo"=>{"title"=>"timezonの設定", "d_entry(1i)"=>"2009", "d_entry(2i)"=>"9", "d_close(1i)"=>"2009", "d_update(1i)"=>"2009", "d_entry(3i)"=>"6", "d_close(2i)"=>"9", "d_update(2i)"=>"9", "d_entry(4i)"=>"16", "content"=>"utc\r\nそれとも\r\nTokyo", "d_close(3i)"=>"6", "d_update(3i)"=>"6", "d_entry(5i)"=>"29", "d_close(4i)"=>"16", "d_update(4i)"=>"16", "d_close(5i)"=>"29", "d_update(5i)"=>"29"}}
+  [4;35;1mTodo Create (19.2ms)[0m   [0mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-09-06 07:29:58', 'timezonの設定', NULL, '2009-09-06 07:29:58', 'utc
+それとも
+Tokyo', '2009-09-06 07:29:58')[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 81ms (DB: 19) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-06 16:29:59) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 19ms (View: 12, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-27 11:34:33) [GET]
+
+ActionController::RoutingError (No route matches "/todo/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-27 11:34:42) [GET]
+  [4;36;1mTodo Load (1.0ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.strftime) on line #17 of app/views/todos/index.html.erb:
+14:     <td><%=h todo.title %></td>
+15:     <td><%=h todo.content %></td>
+16:     <td><%=h todo.d_entry.strftime("%Y-%m-%d") %></td>
+17:     <td><%=h todo.d_update.strftime("%Y-%m-%d") %></td>
+18:     <% if todo.d_close %>
+19:     <td><%=h todo.d_close.strftime("%Y-%m-%d") %></td>
+20:     <% else %>
+
+    app/views/todos/index.html.erb:17
+    app/views/todos/index.html.erb:12:in `each'
+    app/views/todos/index.html.erb:12
+    app/controllers/todos_controller.rb:7:in `index'
+
+Rendered rescues/_trace (56.7ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-27 20:42:18) [GET]
+  [4;35;1mTodo Load (0.8ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 43ms (View: 36, DB: 1) | 200 OK [http://localhost/todos/]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-27 20:42:39) [GET]
+  [4;36;1mTodo Load (0.9ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 81ms (View: 76, DB: 1) | 200 OK [http://localhost/todos/]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-27 20:43:35) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 16ms (View: 11, DB: 1) | 200 OK [http://localhost/todos/]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-27 20:43:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 358ms (View: 352, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-27 20:43:53) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-27 20:43:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 34ms (View: 26, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-27 20:44:06) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"mV0y9r+S/JCxnQkmiALxI/7uaZe+qwKq4SrvEP+IK/A=", "id"=>"1", "todo"=>{"d_close"=>"1", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-06 06:56:22", "d_entry"=>"2009-09-05 06:37:00", "content"=>"aaaaaaa"}}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_entry" = '2009-09-04 21:37:00', "d_update" = '2009-09-05 21:56:22', "updated_at" = '2009-09-27 11:44:06' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 52ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-27 20:44:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 62ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-27 20:44:11) [GET]
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-28 13:11:55) [GET]
+  [4;35;1mTodo Load (0.8ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 19ms (View: 12, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-28 18:37:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-28 18:37:55) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-29 23:58:46) [GET]
+  [4;36;1mTodo Load (0.8ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 239ms (View: 233, DB: 1) | 200 OK [http://localhost/todos/]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-29 23:58:52) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 32ms (View: 27, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-29 23:59:02) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"xlt+IYusC3YlwWhOt8IN4zbfO7Nmc6aR2txSD4nL+/M=", "id"=>"2", "todo"=>{"d_close"=>"0", "title"=>"timezonの設定", "d_update"=>"", "d_entry"=>"2009-09-06 07:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg"}}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;35;1mTodo Update (0.6ms)[0m   [0mUPDATE "todos" SET "d_entry" = '2009-09-05 22:29:58', "content" = 'utc
+それとも
+Tokyo
+abcdefg', "updated_at" = '2009-09-29 14:59:02' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 40ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-29 23:59:02) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 73ms (View: 67, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-29 23:59:06) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-29 23:59:52) [GET]
+  [4;36;1mTodo Load (0.8ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 18ms (View: 10, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-29 23:59:53) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-29 23:59:56) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 00:00:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 64ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 00:00:03) [GET]
+  [4;36;1mTodo Load (0.8ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 16ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 00:00:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 00:00:30) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"xlt+IYusC3YlwWhOt8IN4zbfO7Nmc6aR2txSD4nL+/M=", "id"=>"2", "todo"=>{"d_close"=>"0", "title"=>"timezonの設定", "d_update"=>"", "d_entry"=>"2009-09-05 22:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa"}}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_entry" = '2009-09-05 13:29:58', "content" = 'utc
+それとも
+Tokyo
+abcdefg
+aaaaaa', "updated_at" = '2009-09-29 15:00:30' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 00:00:30) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 00:04:25) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"xlt+IYusC3YlwWhOt8IN4zbfO7Nmc6aR2txSD4nL+/M=", "id"=>"2", "todo"=>{"d_close"=>"0", "title"=>"timezonの設定", "d_update"=>"", "d_entry"=>"2009-09-05 22:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb"}}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;36;1mTodo Update (0.4ms)[0m   [0;1mUPDATE "todos" SET "content" = 'utc
+それとも
+Tokyo
+abcdefg
+aaaaaa
+bbbbbb', "updated_at" = '2009-09-29 15:04:26' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 00:04:26) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 00:04:32) [GET]
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 60ms (View: 55, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 00:04:37) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 00:04:49) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"xlt+IYusC3YlwWhOt8IN4zbfO7Nmc6aR2txSD4nL+/M=", "id"=>"2", "todo"=>{"d_close"=>"0", "title"=>"timezonの設定", "d_update"=>"", "d_entry"=>"2009-09-05 13:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjl"}}
+  [4;36;1mTodo Load (0.6ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;35;1mTodo Update (0.6ms)[0m   [0mUPDATE "todos" SET "d_entry" = '2009-09-05 04:29:58', "content" = 'utc
+それとも
+Tokyo
+abcdefg
+aaaaaa
+bbbbbb
+hjl', "updated_at" = '2009-09-29 15:04:49' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 00:04:49) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 02:43:17) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/todos/]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 02:43:21) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (1.0ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 13ms (View: 6, DB: 1) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 02:43:27) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"dAHhJjggUbNaPJbp5f9oYucjJlayYNYYTeFY5WjRuV0=", "id"=>"2", "todo"=>{"d_close"=>"0", "title"=>"timezonの設定", "d_update"=>"", "d_entry"=>"2009-09-05 04:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;36;1mTodo Update (0.6ms)[0m   [0;1mUPDATE "todos" SET "d_close" = '2009-09-29 17:43:27', "d_entry" = '2009-09-04 19:29:58', "content" = 'utc
+それとも
+Tokyo
+abcdefg
+aaaaaa
+bbbbbb
+hjlaaa', "d_update" = '2009-09-29 17:43:27', "updated_at" = '2009-09-29 17:43:27' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 20ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 02:43:27) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 15ms (View: 7, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 02:43:37) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 17ms (View: 9, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 02:43:42) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"dAHhJjggUbNaPJbp5f9oYucjJlayYNYYTeFY5WjRuV0=", "id"=>"2", "todo"=>{"d_close"=>"0", "title"=>"timezonの設定", "d_update"=>"2009-09-29 17:43:27", "d_entry"=>"2009-09-04 19:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;36;1mTodo Update (0.8ms)[0m   [0;1mUPDATE "todos" SET "d_close" = '2009-09-29 17:43:42', "d_entry" = '2009-09-04 10:29:58', "d_update" = '2009-09-29 17:43:42', "updated_at" = '2009-09-29 17:43:42' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 02:43:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.6ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 13ms (View: 5, DB: 1) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 02:43:45) [GET]
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 02:43:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 14ms (View: 7, DB: 1) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 02:43:54) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"dAHhJjggUbNaPJbp5f9oYucjJlayYNYYTeFY5WjRuV0=", "id"=>"1", "todo"=>{"d_close"=>"0", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-05 21:56:22", "d_entry"=>"2009-09-04 21:37:00", "content"=>"aaaaaaa"}}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_close" = '2009-09-29 17:43:54', "d_entry" = '2009-09-04 12:37:00', "d_update" = '2009-09-29 17:43:54', "updated_at" = '2009-09-29 17:43:54' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 18ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 02:43:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 14ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 02:46:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 19ms (View: 12, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 02:47:01) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"dAHhJjggUbNaPJbp5f9oYucjJlayYNYYTeFY5WjRuV0=", "id"=>"1", "todo"=>{"d_close"=>"0", "title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-29 17:43:54", "d_entry"=>"2009-09-04 12:37:00", "content"=>"aaaaaaa"}}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;35;1mTodo Update (0.4ms)[0m   [0mUPDATE "todos" SET "d_close" = '2009-09-29 17:47:01', "d_entry" = '2009-09-04 03:37:00', "d_update" = '2009-09-29 17:47:01', "updated_at" = '2009-09-29 17:47:01' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 18ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 02:47:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.8ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 15ms (View: 6, DB: 1) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 03:13:27) [GET]
+  [4;35;1mTodo Load (0.7ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-30 19:18:04) [GET]
+
+ActionController::RoutingError (No route matches "/todo/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 19:18:10) [GET]
+  [4;36;1mTodo Load (0.9ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 400ms (View: 386, DB: 1) | 200 OK [http://localhost/todos/]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 19:47:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+
+NoMethodError (undefined method `f_close=' for #<Todo:0x19eb30c>):
+  app/controllers/todos_controller.rb:39:in `edit'
+
+Rendered rescues/_trace (39.2ms)
+Rendered rescues/_request_and_response (1.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 19:47:45) [GET]
+  [4;36;1mTodo Load (0.8ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 28ms (View: 8, DB: 1) | 200 OK [http://localhost/todos/]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 19:47:49) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+
+NoMethodError (undefined method `f_close=' for #<Todo:0x11844ac>):
+  app/controllers/todos_controller.rb:39:in `edit'
+
+Rendered rescues/_trace (147.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 19:50:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+
+NoMethodError (undefined method `f_close=' for #<Todo:0x191bbc0>):
+  app/controllers/todos_controller.rb:39:in `edit'
+
+Rendered rescues/_trace (56.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 19:50:33) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+
+ActionView::TemplateError (undefined method `true' for #<Todo:0x11d74f4>) on line #28 of app/views/todos/edit.html.erb:
+25:   </p>
+26:   <p>
+27:     <b>完了:</b>
+28:     <%= f.check_box @f_close %>
+29:     <%=h @todo.d_close %>
+30: 
+31:   </p>
+
+    app/views/todos/edit.html.erb:28
+    app/views/todos/edit.html.erb:3
+
+Rendered rescues/_trace (58.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 19:51:48) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+
+ActionView::TemplateError (undefined method `f_close' for #<Todo:0x1761cbc>) on line #28 of app/views/todos/edit.html.erb:
+25:   </p>
+26:   <p>
+27:     <b>完了:</b>
+28:     <%= f.check_box :f_close %>
+29:     <%=h @todo.d_close %>
+30: 
+31:   </p>
+
+    app/views/todos/edit.html.erb:28
+    app/views/todos/edit.html.erb:3
+
+Rendered rescues/_trace (157.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:04:07) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.9ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 22ms (View: 12, DB: 1) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:04:12) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"2", "todo"=>{"d_close"=>"0", "title"=>"timezonの設定", "d_update"=>"2009-09-29 17:43:42", "d_entry"=>"2009-09-04 10:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_close" = NULL, "d_entry" = '2009-09-04 01:29:58', "d_update" = '2009-09-30 12:04:12', "updated_at" = '2009-09-30 12:04:12' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 51ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:04:12) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 33ms (View: 25, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:04:17) [GET]
+  [4;35;1mTodo Load (0.8ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 82ms (View: 76, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:04:22) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 32ms (View: 9, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:04:25) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"2", "todo"=>{"d_close"=>"1", "title"=>"timezonの設定", "d_update"=>"2009-09-30 12:04:12", "d_entry"=>"2009-09-04 01:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_entry" = '2009-09-03 16:29:58', "d_update" = '2009-09-30 12:04:25', "updated_at" = '2009-09-30 12:04:25' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 37ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:04:25) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 19ms (View: 4, DB: 1) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:04:29) [GET]
+  [4;36;1mTodo Load (0.8ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 20ms (View: 15, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:05:38) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 18ms (View: 8, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:05:41) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"2", "todo"=>{"d_close"=>"1", "title"=>"timezonの設定", "d_update"=>"2009-09-30 12:04:25", "d_entry"=>"2009-09-03 16:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;36;1mTodo Load (0.5ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_entry" = '2009-09-03 07:29:58', "d_update" = '2009-09-30 12:05:41', "updated_at" = '2009-09-30 12:05:41' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 25ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:05:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 25ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:05:45) [GET]
+  [4;35;1mTodo Load (0.8ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 21ms (View: 15, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:05:47) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 18ms (View: 10, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:05:50) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"2", "todo"=>{"d_close"=>"1", "title"=>"timezonの設定", "d_update"=>"2009-09-30 12:05:41", "d_entry"=>"2009-09-03 07:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;36;1mTodo Update (0.4ms)[0m   [0;1mUPDATE "todos" SET "d_entry" = '2009-09-02 22:29:58', "d_update" = '2009-09-30 12:05:50', "updated_at" = '2009-09-30 12:05:50' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:05:50) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 22ms (View: 11, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:05:53) [GET]
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:07:02) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 90ms (View: 74, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:09:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 25ms (View: 15, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:10:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+
+ActionView::TemplateError (undefined method `check_box_tag' for #<ActionView::Helpers::FormBuilder:0x189f228>) on line #28 of app/views/todos/edit.html.erb:
+25:   </p>
+26:   <p>
+27:     <b>完了:</b>
+28:     <%= f.check_box_tag :f_close  %>
+29:     <%=h @todo.d_close %>
+30: 
+31:   </p>
+
+    app/views/todos/edit.html.erb:28
+    app/views/todos/edit.html.erb:3
+
+Rendered rescues/_trace (74.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:11:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 23ms (View: 11, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:11:49) [PUT]
+  Parameters: {"commit"=>"Update", "f_close"=>"1", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"2", "todo"=>{"title"=>"timezonの設定", "d_update"=>"2009-09-30 12:05:50", "d_entry"=>"2009-09-02 22:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_close" = '2009-09-30 12:11:49', "d_entry" = '2009-09-02 13:29:58', "d_update" = '2009-09-30 12:11:49', "updated_at" = '2009-09-30 12:11:49' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 31ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:11:49) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 21ms (View: 13, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:11:52) [GET]
+  [4;36;1mTodo Load (0.8ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:11:55) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 20ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:12:00) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"2", "todo"=>{"title"=>"timezonの設定", "d_update"=>"2009-09-30 12:11:49", "d_entry"=>"2009-09-02 13:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;36;1mTodo Load (0.5ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;35;1mTodo Update (0.8ms)[0m   [0mUPDATE "todos" SET "d_close" = NULL, "d_entry" = '2009-09-02 04:29:58', "d_update" = '2009-09-30 12:12:00', "updated_at" = '2009-09-30 12:12:00' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 25ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:12:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.5ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 46ms (View: 22, DB: 1) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:12:04) [GET]
+  [4;35;1mTodo Load (0.8ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 15ms (View: 9, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:16:09) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 46ms (View: 28, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:16:13) [PUT]
+  Parameters: {"commit"=>"Update", "f_close"=>"1", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"2", "todo"=>{"title"=>"timezonの設定", "d_update"=>"2009-09-30 12:12:00", "d_entry"=>"2009-09-02 04:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_close" = '2009-09-30 12:16:13', "d_entry" = '2009-09-01 19:29:58', "d_update" = '2009-09-30 12:16:13', "updated_at" = '2009-09-30 12:16:13' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 47ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:16:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 12ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:16:15) [GET]
+  [4;36;1mTodo Load (5.0ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 20ms (View: 10, DB: 5) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:16:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 93ms (View: 84, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:16:22) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"2", "todo"=>{"title"=>"timezonの設定", "d_update"=>"2009-09-30 12:16:13", "d_entry"=>"2009-09-01 19:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;36;1mTodo Load (0.6ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_close" = NULL, "d_entry" = '2009-09-01 10:29:58', "d_update" = '2009-09-30 12:16:22', "updated_at" = '2009-09-30 12:16:22' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 21ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:16:22) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.5ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 19ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:16:25) [GET]
+  [4;35;1mTodo Load (0.9ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 15ms (View: 9, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:16:27) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.5ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 16ms (View: 6, DB: 1) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:20:51) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 18ms (View: 10, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:20:56) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:21:11) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 29ms (View: 10, DB: 0) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:21:20) [PUT]
+  Parameters: {"commit"=>"Update", "f_close"=>"1", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"2", "todo"=>{"title"=>"timezonの設定", "d_update"=>"2009-09-30 12:16:22", "d_entry"=>"2009-09-01 10:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;35;1mTodo Update (0.7ms)[0m   [0mUPDATE "todos" SET "d_close" = '2009-09-30 12:21:20', "d_entry" = '2009-09-01 01:29:58', "d_update" = '2009-09-30 12:21:20', "updated_at" = '2009-09-30 12:21:20' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 44ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:21:20) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 39ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:21:25) [GET]
+  [4;35;1mTodo Load (1.0ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 15ms (View: 9, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:21:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 18ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/1/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:21:43) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"1", "todo"=>{"title"=>"ToDoアプリケーションの作成", "d_update"=>"2009-09-29 17:47:01", "d_entry"=>"2009-09-04 03:37:00", "content"=>"aaaaaaa"}}
+  [4;35;1mTodo Load (14.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_close" = NULL, "d_entry" = '2009-09-03 18:37:00', "d_update" = '2009-09-30 12:21:43', "updated_at" = '2009-09-30 12:21:43' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos/1
+Completed in 62ms (DB: 15) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:21:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 89ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:21:46) [GET]
+  [4;36;1mTodo Load (0.8ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 14ms (View: 8, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-09-30 21:29:46) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 54ms (View: 46, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-09-30 21:30:16) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "todo"=>{"title"=>"CSSの作成", "d_entry(1i)"=>"2009", "d_entry(2i)"=>"9", "d_close(1i)"=>"2009", "d_update(1i)"=>"2009", "d_entry(3i)"=>"30", "d_close(2i)"=>"9", "d_update(2i)"=>"9", "d_entry(4i)"=>"21", "content"=>"ToDoアプリケーションのCSSを作成する", "d_close(3i)"=>"30", "d_update(3i)"=>"30", "d_entry(5i)"=>"29", "d_close(4i)"=>"21", "d_update(4i)"=>"21", "d_close(5i)"=>"29", "d_update(5i)"=>"29"}}
+  [4;35;1mTodo Create (14.7ms)[0m   [0mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-09-30 12:30:16', 'CSSの作成', NULL, '2009-09-30 12:30:16', 'ToDoアプリケーションのCSSを作成する', '2009-09-30 12:30:16')[0m
+Redirected to http://localhost:3000/todos/3
+Completed in 84ms (DB: 15) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:30:16) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 3) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 21ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/3]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:30:23) [GET]
+  [4;35;1mTodo Load (0.9ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 53ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-09-30 21:30:26) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 37ms (View: 31, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-09-30 21:30:59) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "todo"=>{"title"=>"New todoから日付の項目を削除", "d_entry(1i)"=>"2009", "d_entry(2i)"=>"9", "d_close(1i)"=>"2009", "d_update(1i)"=>"2009", "d_entry(3i)"=>"30", "d_close(2i)"=>"9", "d_update(2i)"=>"9", "d_entry(4i)"=>"21", "content"=>"New todoから日付の項目を削除する", "d_close(3i)"=>"30", "d_update(3i)"=>"30", "d_entry(5i)"=>"30", "d_close(4i)"=>"21", "d_update(4i)"=>"21", "d_close(5i)"=>"30", "d_update(5i)"=>"30"}}
+  [4;36;1mTodo Create (0.5ms)[0m   [0;1mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-09-30 12:30:59', 'New todoから日付の項目を削除', NULL, '2009-09-30 12:30:59', 'New todoから日付の項目を削除する', '2009-09-30 12:30:59')[0m
+Redirected to http://localhost:3000/todos/4
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:30:59) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/4]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:31:04) [GET]
+  [4;36;1mTodo Load (1.0ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-09-30 21:31:11) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (1.2ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 13ms (View: 5, DB: 1) | 200 OK [http://localhost/todos/2/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-09-30 21:31:16) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"2", "todo"=>{"title"=>"timezonの設定", "d_update"=>"2009-09-30 12:21:20", "d_entry"=>"2009-09-01 01:29:58", "content"=>"utc\r\nそれとも\r\nTokyo\r\nabcdefg\r\naaaaaa\r\nbbbbbb\r\nhjlaaa"}}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_close" = NULL, "d_entry" = '2009-08-31 16:29:58', "d_update" = '2009-09-30 12:31:16', "updated_at" = '2009-09-30 12:31:16' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/todos/2
+Completed in 131ms (DB: 1) | 302 Found [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-09-30 21:31:16) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 15ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-09-30 21:31:20) [GET]
+  [4;35;1mTodo Load (1.0ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 51ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-10-01 10:27:45) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 30ms (View: 9, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-10-01 10:28:26) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "todo"=>{"title"=>"千鶴の住民票", "content"=>"区役所出張所に千鶴の住民用をもらいにいく"}}
+  [4;36;1mTodo Create (26.3ms)[0m   [0;1mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-10-01 01:28:26', '千鶴の住民票', NULL, '2009-10-01 01:28:26', '区役所出張所に千鶴の住民用をもらいにいく', '2009-10-01 01:28:26')[0m
+Redirected to http://localhost:3000/todos/5
+Completed in 56ms (DB: 26) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-01 10:28:26) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 5) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 13ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/5]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-01 10:28:34) [GET]
+  [4;36;1mTodo Load (1.6ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 20ms (View: 14, DB: 2) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-10-01 10:29:16) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-10-01 10:30:26) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "todo"=>{"title"=>"完了todoの行の色", "content"=>"完了したtodoは、一覧上で容易に識別できるように色を変える（グレー）"}}
+  [4;35;1mTodo Create (0.4ms)[0m   [0mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-10-01 01:30:26', '完了todoの行の色', NULL, '2009-10-01 01:30:26', '完了したtodoは、一覧上で容易に識別できるように色を変える（グレー）', '2009-10-01 01:30:26')[0m
+Redirected to http://localhost:3000/todos/6
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-01 10:30:27) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 6) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/6]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-01 10:30:31) [GET]
+  [4;35;1mTodo Load (1.3ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-10-01 10:30:45) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 12ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/4/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-10-01 10:30:49) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"4", "todo"=>{"title"=>"New todoから日付の項目を削除", "d_update"=>"", "d_entry"=>"2009-09-30 12:30:59", "content"=>"New todoから日付の項目を削除する"}}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_entry" = '2009-09-30 03:30:59', "d_update" = '2009-10-01 01:30:49', "updated_at" = '2009-10-01 01:30:49' WHERE "id" = 4[0m
+Redirected to http://localhost:3000/todos/4
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/todos/4]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-01 10:30:49) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mTodo Load (0.5ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 62ms (View: 52, DB: 0) | 200 OK [http://localhost/todos/4]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-01 10:30:54) [GET]
+  [4;36;1mTodo Load (1.2ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 21ms (View: 15, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-10-01 12:12:17) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 5) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/5/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-10-01 12:12:23) [PUT]
+  Parameters: {"commit"=>"Update", "f_close"=>"1", "authenticity_token"=>"QP6bvDWNIkb0IIkWjH4SBMlV+lCgd+U4rjO8aCgGYZc=", "id"=>"5", "todo"=>{"title"=>"千鶴の住民票", "d_update"=>"", "d_entry"=>"2009-10-01 01:28:26", "content"=>"区役所出張所に千鶴の住民用をもらいにいく"}}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 5) [0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_close" = '2009-10-01 03:12:23', "d_entry" = '2009-09-30 16:28:26', "d_update" = '2009-10-01 03:12:23', "updated_at" = '2009-10-01 03:12:23' WHERE "id" = 5[0m
+Redirected to http://localhost:3000/todos/5
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/todos/5]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-01 12:12:23) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 5) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/5]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-01 12:12:33) [GET]
+  [4;35;1mTodo Load (1.5ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 21ms (View: 14, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:13:00) [GET]
+  [4;36;1mTodo Load (1.4ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 373ms (View: 366, DB: 1) | 200 OK [http://localhost/todos/]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-10-03 13:19:55) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 27ms (View: 22, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-10-03 13:20:01) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 41ms (View: 30, DB: 0) | 200 OK [http://localhost/todos/4/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-10-03 13:20:03) [PUT]
+  Parameters: {"commit"=>"Update", "f_close"=>"1", "authenticity_token"=>"3ErvY+5DbtytxsTLpf7mXL4UlortOSYZe7dkkIzR/L0=", "id"=>"4", "todo"=>{"title"=>"New todoから日付の項目を削除", "d_update"=>"2009-10-01 01:30:49", "d_entry"=>"2009-09-30 03:30:59", "content"=>"New todoから日付の項目を削除する"}}
+  [4;36;1mTodo Load (1.0ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+  [4;35;1mTodo Update (0.5ms)[0m   [0mUPDATE "todos" SET "d_close" = '2009-10-03 04:20:03', "d_entry" = '2009-09-29 18:30:59', "d_update" = '2009-10-03 04:20:03', "updated_at" = '2009-10-03 04:20:03' WHERE "id" = 4[0m
+Redirected to http://localhost:3000/todos/4
+Completed in 42ms (DB: 1) | 302 Found [http://localhost/todos/4]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 13:20:04) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 36ms (View: 29, DB: 0) | 200 OK [http://localhost/todos/4]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:20:06) [GET]
+  [4;35;1mTodo Load (1.2ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#destroy (for 127.0.0.1 at 2009-10-03 13:21:07) [DELETE]
+  Parameters: {"authenticity_token"=>"3ErvY+5DbtytxsTLpf7mXL4UlortOSYZe7dkkIzR/L0=", "id"=>"1"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) [0m
+  [4;35;1mTodo Destroy (0.6ms)[0m   [0mDELETE FROM "todos" WHERE "id" = 1[0m
+Redirected to http://localhost:3000/todos
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/todos/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:21:07) [GET]
+  [4;36;1mTodo Load (1.1ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 66ms (View: 61, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:25:11) [GET]
+  [4;35;1mTodo Load (1.0ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+
+ActionView::TemplateError (undefined method `d_close' for #<Array:0x19fe72c>) on line #14 of app/views/todos/index.html.erb:
+11:   </tr>
+12: 
+13: <% @todos.each do |todo| %>
+14: <% if @todos.d_close %>
+15:   <tr class="close" >
+16: <% else %>
+17:   <tr>
+
+    app/views/todos/index.html.erb:14
+    app/views/todos/index.html.erb:13:in `each'
+    app/views/todos/index.html.erb:13
+    app/controllers/todos_controller.rb:7:in `index'
+
+Rendered rescues/_trace (60.3ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:25:35) [GET]
+  [4;36;1mTodo Load (1.1ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.d_close) on line #14 of app/views/todos/index.html.erb:
+11:   </tr>
+12: 
+13: <% @todos.each do |todo| %>
+14: <% if @todo.d_close %>
+15:   <tr class="close" >
+16: <% else %>
+17:   <tr>
+
+    app/views/todos/index.html.erb:14
+    app/views/todos/index.html.erb:13:in `each'
+    app/views/todos/index.html.erb:13
+    app/controllers/todos_controller.rb:7:in `index'
+
+Rendered rescues/_trace (57.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:26:22) [GET]
+  [4;35;1mTodo Load (1.1ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.d_close) on line #14 of app/views/todos/index.html.erb:
+11:   </tr>
+12: 
+13: <% @todos.each do |todo| %>
+14: <% if @todo.d_close != '' %>
+15:   <tr class="close" >
+16: <% else %>
+17:   <tr>
+
+    app/views/todos/index.html.erb:14
+    app/views/todos/index.html.erb:13:in `each'
+    app/views/todos/index.html.erb:13
+    app/controllers/todos_controller.rb:7:in `index'
+
+Rendered rescues/_trace (54.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:26:42) [GET]
+  [4;36;1mTodo Load (1.0ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 20ms (View: 15, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:26:57) [GET]
+  [4;35;1mTodo Load (1.1ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 82ms (View: 76, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:27:26) [GET]
+  [4;36;1mTodo Load (1.4ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:27:33) [GET]
+  [4;35;1mTodo Load (1.1ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:27:43) [GET]
+  [4;36;1mTodo Load (1.2ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:28:00) [GET]
+  [4;35;1mTodo Load (1.1ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:28:19) [GET]
+  [4;36;1mTodo Load (1.0ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:28:20) [GET]
+  [4;35;1mTodo Load (1.1ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:28:30) [GET]
+  [4;36;1mTodo Load (1.2ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:28:46) [GET]
+  [4;35;1mTodo Load (1.1ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:29:37) [GET]
+  [4;36;1mTodo Load (1.0ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:30:18) [GET]
+  [4;35;1mTodo Load (1.0ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:30:30) [GET]
+  [4;36;1mTodo Load (1.3ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 63ms (View: 57, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:30:50) [GET]
+  [4;35;1mTodo Load (1.2ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 21ms (View: 14, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 13:31:34) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/4]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:31:38) [GET]
+  [4;35;1mTodo Load (1.0ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-10-03 13:31:40) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:31:43) [GET]
+  [4;36;1mTodo Load (1.1ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-10-03 13:31:49) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 57ms (View: 5, DB: 0) | 200 OK [http://localhost/todos/4/edit]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:31:54) [GET]
+  [4;36;1mTodo Load (1.1ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-10-03 13:32:01) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-10-03 13:32:20) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3ErvY+5DbtytxsTLpf7mXL4UlortOSYZe7dkkIzR/L0=", "todo"=>{"title"=>"日付の書式", "content"=>"日付／時刻の書式の設定"}}
+  [4;35;1mTodo Create (25.3ms)[0m   [0mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-10-03 04:32:20', '日付の書式', NULL, '2009-10-03 04:32:20', '日付／時刻の書式の設定', '2009-10-03 04:32:20')[0m
+Redirected to http://localhost:3000/todos/7
+Completed in 59ms (DB: 25) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 13:32:20) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 7) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/7]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:32:23) [GET]
+  [4;35;1mTodo Load (1.2ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#edit (for 127.0.0.1 at 2009-10-03 13:33:57) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 6) [0m
+Rendering template within layouts/todos
+Rendering todos/edit
+Completed in 56ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/6/edit]
+
+
+Processing TodosController#update (for 127.0.0.1 at 2009-10-03 13:34:01) [PUT]
+  Parameters: {"commit"=>"Update", "f_close"=>"1", "authenticity_token"=>"3ErvY+5DbtytxsTLpf7mXL4UlortOSYZe7dkkIzR/L0=", "id"=>"6", "todo"=>{"title"=>"完了todoの行の色", "d_update"=>"", "d_entry"=>"2009-10-01 01:30:26", "content"=>"完了したtodoは、一覧上で容易に識別できるように色を変える（グレー）"}}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 6) [0m
+  [4;36;1mTodo Update (0.5ms)[0m   [0;1mUPDATE "todos" SET "d_close" = '2009-10-03 04:34:01', "d_entry" = '2009-09-30 16:30:26', "d_update" = '2009-10-03 04:34:01', "updated_at" = '2009-10-03 04:34:01' WHERE "id" = 6[0m
+Redirected to http://localhost:3000/todos/6
+Completed in 126ms (DB: 1) | 302 Found [http://localhost/todos/6]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 13:34:01) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 6) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/6]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:34:03) [GET]
+  [4;36;1mTodo Load (1.2ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#destroy (for 127.0.0.1 at 2009-10-03 13:36:12) [DELETE]
+  Parameters: {"authenticity_token"=>"3ErvY+5DbtytxsTLpf7mXL4UlortOSYZe7dkkIzR/L0=", "id"=>"5"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 5) [0m
+  [4;36;1mTodo Destroy (0.4ms)[0m   [0;1mDELETE FROM "todos" WHERE "id" = 5[0m
+Redirected to http://localhost:3000/todos
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/todos/5]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 13:36:12) [GET]
+  [4;35;1mTodo Load (1.1ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-10-03 14:21:45) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-10-03 14:22:08) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3ErvY+5DbtytxsTLpf7mXL4UlortOSYZe7dkkIzR/L0=", "todo"=>{"title"=>"[emacs]", "content"=>"shellを2つ以上起ち上げる方法"}}
+  [4;36;1mTodo Create (0.4ms)[0m   [0;1mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-10-03 05:22:08', '[emacs]', NULL, '2009-10-03 05:22:08', 'shellを2つ以上起ち上げる方法', '2009-10-03 05:22:08')[0m
+Redirected to http://localhost:3000/todos/8
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:22:08) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 8) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/8]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 14:22:12) [GET]
+  [4;36;1mTodo Load (1.5ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 24ms (View: 17, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:44:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:46:10) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://localhost/todos/4]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 14:46:37) [GET]
+  [4;35;1mTodo Load (1.3ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:47:53) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+ERROR: compiling _run_erb_app47views47todos47show46html46erb RAISED compile error
+/Users/yasuoy/RoR/todo/app/views/todos/show.html.erb:13: syntax error, unexpected ';', expecting ')'
+...e("%Y-%m-%d %H:%M:%S" ).to_s); @output_buffer.concat "\n"
+                              ^
+Function body:           def _run_erb_app47views47todos47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>\343\202\277\343\202\244\343\203\210\343\203\253:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @todo.title ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>\345\206\205\345\256\271:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @todo.content ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>\350\265\267\347\245\250\346\227\245:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @todo.d_entry.strftime("%Y-%m-%d %H:%M:%S" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>\346\233\264\346\226\260\346\227\245:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @todo.d_update ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>\345\256\214\344\272\206\346\227\245:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @todo.d_close ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Edit', edit_todo_path(@todo) ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Back', todos_path ).to_s); @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/yasuoy/RoR/todo/app/views/todos/show.html.erb:32:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/yasuoy/RoR/todo/app/controllers/todos_controller.rb:18:in `show'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/yasuoy/RoR/todo/app/views/todos/show.html.erb:13: syntax error, unexpected ';', expecting ')'
+...e("%Y-%m-%d %H:%M:%S" ).to_s); @output_buffer.concat "\n"
+                              ^) on line #13 of app/views/todos/show.html.erb:
+10: 
+11: <p>
+12:   <b>起票日:</b>
+13:   <%=h @todo.d_entry.strftime("%Y-%m-%d %H:%M:%S" %>
+14: </p>
+15: 
+16: <p>
+
+    app/views/todos/show.html.erb:32:in `compile!'
+    app/controllers/todos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (52.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:48:12) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.9ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 18ms (View: 9, DB: 1) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:48:43) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 75ms (View: 69, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:49:35) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:49:53) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:50:19) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.strftime) on line #23 of app/views/todos/show.html.erb:
+20: 
+21: <p>
+22:   <b>完了日:</b>
+23:   <%=h @todo.d_close.strftime("%Y-%m-%d(%a) %H:%M:%S") %>
+24: </p>
+25: 
+26: 
+
+    app/views/todos/show.html.erb:23
+    app/controllers/todos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (106.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:50:39) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 14:50:47) [GET]
+  [4;35;1mTodo Load (1.1ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:50:49) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mTodo Load (0.3ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 7) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.strftime) on line #18 of app/views/todos/show.html.erb:
+15: 
+16: <p>
+17:   <b>更新日:</b>
+18:   <%=h @todo.d_update.strftime("%Y-%m-%d(%a) %H:%M:%S") %>
+19: </p>
+20: 
+21: <p>
+
+    app/views/todos/show.html.erb:18
+    app/controllers/todos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (107.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:51:28) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 7) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/7]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:51:59) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 2) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 17ms (View: 8, DB: 0) | 200 OK [http://localhost/todos/2]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 14:52:05) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 4) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 13ms (View: 6, DB: 0) | 200 OK [http://localhost/todos/4]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-10-03 22:37:08) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 15ms (View: 8, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-10-03 22:37:34) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3ErvY+5DbtytxsTLpf7mXL4UlortOSYZe7dkkIzR/L0=", "todo"=>{"title"=>"RSS", "content"=>"RSSについて概略を理解する\r\nフィードなど"}}
+  [4;36;1mTodo Create (0.5ms)[0m   [0;1mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-10-03 13:37:34', 'RSS', NULL, '2009-10-03 13:37:34', 'RSSについて概略を理解する
+フィードなど', '2009-10-03 13:37:34')[0m
+Redirected to http://localhost:3000/todos/9
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 22:37:34) [GET]
+  Parameters: {"id"=>"9"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 9) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/9]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 22:37:39) [GET]
+  [4;36;1mTodo Load (1.4ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-10-03 22:38:03) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-10-03 22:38:47) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3ErvY+5DbtytxsTLpf7mXL4UlortOSYZe7dkkIzR/L0=", "todo"=>{"title"=>"経過日数", "content"=>"一覧上に経過日数を表示する"}}
+  [4;35;1mTodo Create (1.4ms)[0m   [0mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-10-03 13:38:47', '経過日数', NULL, '2009-10-03 13:38:47', '一覧上に経過日数を表示する', '2009-10-03 13:38:47')[0m
+Redirected to http://localhost:3000/todos/10
+Completed in 48ms (DB: 1) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 22:38:47) [GET]
+  Parameters: {"id"=>"10"}
+  [4;36;1mTodo Load (0.7ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 10) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 12ms (View: 4, DB: 1) | 200 OK [http://localhost/todos/10]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 22:38:51) [GET]
+  [4;35;1mTodo Load (1.5ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 80ms (View: 71, DB: 1) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-10-03 22:38:54) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-10-03 22:39:30) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3ErvY+5DbtytxsTLpf7mXL4UlortOSYZe7dkkIzR/L0=", "todo"=>{"title"=>"ページング", "content"=>"一覧にページング機能を追加する"}}
+  [4;36;1mTodo Create (0.7ms)[0m   [0;1mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-10-03 13:39:30', 'ページング', NULL, '2009-10-03 13:39:30', '一覧にページング機能を追加する', '2009-10-03 13:39:30')[0m
+Redirected to http://localhost:3000/todos/11
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 22:39:30) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mTodo Load (0.3ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 11) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/todos/11]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 22:39:32) [GET]
+  [4;36;1mTodo Load (1.6ms)[0m   [0;1mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 21ms (View: 15, DB: 2) | 200 OK [http://localhost/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2009-10-03 23:20:57) [GET]
+Rendering template within layouts/todos
+Rendering todos/new
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2009-10-03 23:21:18) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3ErvY+5DbtytxsTLpf7mXL4UlortOSYZe7dkkIzR/L0=", "todo"=>{"title"=>"URLとURIの違い", "content"=>"URLとURIの違いを理解する"}}
+  [4;35;1mTodo Create (0.6ms)[0m   [0mINSERT INTO "todos" ("d_close", "updated_at", "title", "d_update", "d_entry", "content", "created_at") VALUES(NULL, '2009-10-03 14:21:18', 'URLとURIの違い', NULL, '2009-10-03 14:21:18', 'URLとURIの違いを理解する', '2009-10-03 14:21:18')[0m
+Redirected to http://localhost:3000/todos/12
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2009-10-03 23:21:19) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mTodo Load (0.4ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 12) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/todos/12]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2009-10-03 23:21:22) [GET]
+  [4;35;1mTodo Load (1.8ms)[0m   [0mSELECT * FROM "todos" [0m
+Rendering template within layouts/todos
+Rendering todos/index
+Completed in 30ms (View: 23, DB: 2) | 200 OK [http://localhost/todos]

@@ -1,0 +1,41 @@
+<h1>Listing todos</h1>
+
+<table border="1">
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+    <th>起票日</th>
+    <th>更新日</th>
+    <th>完了日</th>
+    <th colspan="3">編集</th>
+  </tr>
+
+<% @todos.each do |todo| %>
+<% if todo.d_close %>
+  <tr class="close" >
+<% else %>
+  <tr>
+<% end %>
+    <td><%=h todo.title %></td>
+    <td><%=h todo.content %></td>
+    <td><%=h todo.d_entry.strftime("%Y-%m-%d") %></td>
+    <% if todo.d_update %>    
+    <td><%=h todo.d_update.strftime("%Y-%m-%d") %></td>
+    <% else %>
+    <td>&nbsp;</td>
+    <% end %>
+    <% if todo.d_close %>
+    <td><%=h todo.d_close.strftime("%Y-%m-%d") %></td>
+    <% else %>
+    <td>&nbsp;</td>
+    <% end %>
+    <td><%= link_to 'Show', todo %></td>
+    <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+    <td><%= link_to 'Destroy', todo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New todo', new_todo_path %>
